@@ -12,6 +12,8 @@ class Rectangle:
 
     Attributes:
         number_of_instances: Counter for number of instances created
+        or deleted
+        print_symbol: Used as symbol for string representation
         width: The width of rectangle
         height: The height of rectangle
         __init__(self, width=0, height=0)
@@ -25,6 +27,7 @@ class Rectangle:
         ValueError: width must be >= 0
     """
     number_of_instances = 0
+    print_symbol = "#"
 
     def __init__(self, width=0, height=0):
         """This method initializes the class instance
@@ -102,7 +105,8 @@ class Rectangle:
 
         if self.__width == 0 or self.__height == 0:
             return ""
-        display = '\n'.join(["#" * self.__width for i in range(self.__height)])
+        display = '\n'.join([str(self.print_symbol) * self.__width
+                            for i in range(self.__height)])
 
         return display
 
